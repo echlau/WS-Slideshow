@@ -12,10 +12,11 @@ using System.Windows.Forms;
 
 namespace WS_Slideshow
 {
-    public partial class Form1 : Form
+    public partial class SlideshowInitialization : Form
     {
         private static String slideShowFolderPath;
-        public Form1()
+
+        public SlideshowInitialization()
         {
             InitializeComponent();
         }
@@ -42,12 +43,30 @@ namespace WS_Slideshow
                 {
                     Directory.CreateDirectory(slideShowFolderPath + "\\WS-Slideshow\\panel" + i);
                 }
-            }else
+            }
+            else
             {
                 //Error for an incorrect file path
                 Debug.Print("Incorrect file path");
             }
 
         }
+
+        private void panelNumber_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //panelInterval textboxes enabled corresponding to number of panels chosen
+            for (int i = 0; i < 4; i++)
+            {
+                if (Int16.Parse(panelNumber.Text) > i)
+                {
+                    intervalGroup.Controls[i].Enabled = true;
+                }else
+                {
+                    intervalGroup.Controls[i].Enabled = false;
+                }
+            }
+            
+        }
+        
     }
 }
