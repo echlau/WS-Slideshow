@@ -38,14 +38,15 @@
             this.panelInterval3 = new System.Windows.Forms.TextBox();
             this.panelInterval4 = new System.Windows.Forms.TextBox();
             this.intervalGroup = new System.Windows.Forms.Panel();
+            this.startSlideshow = new System.Windows.Forms.Button();
             this.intervalGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // folderBrowse
             // 
-            this.folderBrowse.Location = new System.Drawing.Point(639, 38);
+            this.folderBrowse.Location = new System.Drawing.Point(626, 38);
             this.folderBrowse.Name = "folderBrowse";
-            this.folderBrowse.Size = new System.Drawing.Size(83, 23);
+            this.folderBrowse.Size = new System.Drawing.Size(96, 23);
             this.folderBrowse.TabIndex = 0;
             this.folderBrowse.Text = "Browse";
             this.folderBrowse.UseVisualStyleBackColor = true;
@@ -61,9 +62,9 @@
             // 
             // createFolders
             // 
-            this.createFolders.Location = new System.Drawing.Point(639, 67);
+            this.createFolders.Location = new System.Drawing.Point(626, 67);
             this.createFolders.Name = "createFolders";
-            this.createFolders.Size = new System.Drawing.Size(83, 23);
+            this.createFolders.Size = new System.Drawing.Size(96, 23);
             this.createFolders.TabIndex = 2;
             this.createFolders.Text = "Create Folders";
             this.createFolders.UseVisualStyleBackColor = true;
@@ -89,14 +90,16 @@
             this.panelInterval1.Name = "panelInterval1";
             this.panelInterval1.Size = new System.Drawing.Size(100, 20);
             this.panelInterval1.TabIndex = 4;
+            this.panelInterval1.Text = "10";
             // 
-            // panel2Interval
+            // panelInterval2
             // 
             this.panelInterval2.Enabled = false;
             this.panelInterval2.Location = new System.Drawing.Point(3, 94);
-            this.panelInterval2.Name = "panel2Interval";
+            this.panelInterval2.Name = "panelInterval2";
             this.panelInterval2.Size = new System.Drawing.Size(100, 20);
             this.panelInterval2.TabIndex = 5;
+            this.panelInterval2.Text = "20";
             // 
             // panelInterval3
             // 
@@ -105,6 +108,7 @@
             this.panelInterval3.Name = "panelInterval3";
             this.panelInterval3.Size = new System.Drawing.Size(100, 20);
             this.panelInterval3.TabIndex = 6;
+            this.panelInterval3.Text = "25";
             // 
             // panelInterval4
             // 
@@ -113,6 +117,7 @@
             this.panelInterval4.Name = "panelInterval4";
             this.panelInterval4.Size = new System.Drawing.Size(100, 20);
             this.panelInterval4.TabIndex = 7;
+            this.panelInterval4.Text = "40";
             // 
             // intervalGroup
             // 
@@ -125,11 +130,22 @@
             this.intervalGroup.Size = new System.Drawing.Size(200, 295);
             this.intervalGroup.TabIndex = 8;
             // 
+            // startSlideshow
+            // 
+            this.startSlideshow.Location = new System.Drawing.Point(626, 407);
+            this.startSlideshow.Name = "startSlideshow";
+            this.startSlideshow.Size = new System.Drawing.Size(96, 23);
+            this.startSlideshow.TabIndex = 9;
+            this.startSlideshow.Text = "Start Slideshow";
+            this.startSlideshow.UseVisualStyleBackColor = true;
+            this.startSlideshow.Click += new System.EventHandler(this.startSlideshow_Click);
+            // 
             // SlideshowInitialization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.startSlideshow);
             this.Controls.Add(this.intervalGroup);
             this.Controls.Add(this.panelNumber);
             this.Controls.Add(this.createFolders);
@@ -156,6 +172,7 @@
         private System.Windows.Forms.TextBox panelInterval3;
         private System.Windows.Forms.TextBox panelInterval4;
         private System.Windows.Forms.Panel intervalGroup;
+        private System.Windows.Forms.Button startSlideshow;
     }
 }
 
