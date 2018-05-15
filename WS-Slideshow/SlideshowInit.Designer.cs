@@ -90,7 +90,7 @@
             this.panelInterval1.Name = "panelInterval1";
             this.panelInterval1.Size = new System.Drawing.Size(100, 20);
             this.panelInterval1.TabIndex = 4;
-            this.panelInterval1.Text = "10";
+            this.panelInterval1.Text = "3";
             // 
             // panelInterval2
             // 

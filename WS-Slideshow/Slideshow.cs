@@ -21,9 +21,11 @@ namespace WS_Slideshow
         private static PictureBox p;
         private static int temp = 0;
         //Changes slides for panel
+
         private static void TimerEventProcessor(Object myObject,
                                             EventArgs myEventArgs)
         {
+            ///TEMP START
             panelTimer1.Interval = intervalofPanels[0] * 1000;
             String[] dirs = Directory.GetFiles(folderPath + "\\panel1", "*.jpg");
             if (temp == dirs.Length)
@@ -35,11 +37,20 @@ namespace WS_Slideshow
                 p.ImageLocation = dirs[temp++];
                 Debug.Print(temp.ToString());
             }
-            catch {
-                panelTimer1.Stop();
-                Application.OpenForms.OfType<Slideshow>().First().Close();
+            catch
+            {
+                endSlideshow();
             }
+            ///TEMP END
         }
+
+        //Exits out of the slideshow
+        private static void endSlideshow()
+        {
+            panelTimer1.Stop();
+            Application.OpenForms.OfType<Slideshow>().First().Close();
+        }
+
         //Sets up slideshows and sets values for static variables
         public Slideshow(int num, List<int> intervals, string path)
         {
@@ -48,8 +59,11 @@ namespace WS_Slideshow
             intervalofPanels = intervals;
             folderPath = path;
 
+            ///TEMP START
             temp = 0;
             p = pictureBox1;
+
+            pictureBox1.Size = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
 
             panelTimer1 = new Timer();
             panelTimer1.Tick += new EventHandler(TimerEventProcessor);
@@ -57,7 +71,7 @@ namespace WS_Slideshow
 
             panelTimer1.Enabled = true;
             panelTimer1.Start();
-
+            ///TEMP END
         }
 
         //Ensures the timer is stopped when form is closed
@@ -66,6 +80,14 @@ namespace WS_Slideshow
             Debug.Print("closing form");
             panelTimer1.Enabled = false;
             panelTimer1.Stop();
+        }
+        //Closes slideshow on escape key press
+        private void Slideshow_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Escape)
+            {
+                endSlideshow();
+            }
         }
     }
 }
