@@ -34,43 +34,45 @@ namespace WS_Slideshow
             { 
                 //Gets the path the the slides for the slideshow. List gets cleared and repopulated in case files get changed.
                 dirs.Clear();
-                foreach (String s in Directory.GetFiles(folderPath + "\\panel" + (i + 1), "*.jpg"))
-                {
-                    dirs.Add(s);
-                }
-                foreach (String s in Directory.GetFiles(folderPath + "\\panel" + (i + 1), "*.png"))
+                foreach(String s in Directory.EnumerateFiles(folderPath + "\\panel" + (i + 1), "*.*")
+                    .Where(s => s.EndsWith(".jpg") || s.EndsWith(".gif")))
                 {
                     dirs.Add(s);
                 }
 
-                //Changes slide or counts down towards changing slide
-                if (panelTime[i] == 0)
+                //Checks if there are slides to display, if not then display error image
+                if (dirs.Count != 0){
+                    //Changes slide or counts down towards changing slide
+                    if (panelTime[i] == 0)
+                    {
+                        //Checks if panel index exceeds the number of slides in the folder
+                        if (panelIndex[i] >= dirs.Count)
+                        {
+                            //Sets the index to the first slide
+                            panelIndex[i] = 0;
+                        }
+                        try
+                        {
+                            //Displays the slide in the corresponding panel
+                            panel[i].Image = Image.FromFile(dirs[panelIndex[i]++]);
+                        }
+                        catch
+                        {
+                            //endSlideshow();
+                        }
+                        //Resets the time remaining for the panel's slide change
+                        panelTime[i] = intervalofPanels[i];
+                    }
+                    else
+                    {
+                        //Updates the time remaining for a slide change
+                        panelTime[i]--;
+                    }
+                }else
                 {
-                    //Checks if panel index exceeds the number of slides in the folder
-                    if (panelIndex[i] >= dirs.Count)
-                    {
-                        //Sets the index to the first slide
-                        panelIndex[i] = 0;
-                    }
-                    try
-                    {
-                        //Displays the slide in the corresponding panel
-                        panel[i].ImageLocation = dirs[panelIndex[i]++];
-                    }
-                    catch
-                    {
-                        //endSlideshow();
-                    }
-                    //Resets the time remaining for the panel's slide change
-                    panelTime[i] = intervalofPanels[i];
-                }
-                else
-                {
-                    //Updates the time remaining for a slide change
-                    panelTime[i]--;
+                    panel[i].Image = panel[i].ErrorImage;
                 }
             }
-            ///TEMP END
         }
 
         //Exits out of the slideshow

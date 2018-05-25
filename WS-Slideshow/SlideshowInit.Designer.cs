@@ -58,7 +58,6 @@
             this.folderPath.Name = "folderPath";
             this.folderPath.Size = new System.Drawing.Size(580, 20);
             this.folderPath.TabIndex = 1;
-            this.folderPath.Text = "C:\\Users\\EricL\\OneDrive";
             // 
             // createFolders
             // 
@@ -153,6 +152,7 @@
             this.Controls.Add(this.folderBrowse);
             this.Name = "SlideshowInitialization";
             this.Text = "WS-Slideshow";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SlideshowInitialization_FormClosed);
             this.intervalGroup.ResumeLayout(false);
             this.intervalGroup.PerformLayout();
             this.ResumeLayout(false);

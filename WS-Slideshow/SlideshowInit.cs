@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace WS_Slideshow
 {
@@ -24,8 +25,15 @@ namespace WS_Slideshow
         public SlideshowInitialization()
         {
             InitializeComponent();
-            //Initializes the panelNumber dropdown list to the first selection
-            panelNumber.SelectedIndex = 0;
+
+            //Loads what user had last session
+            panelNumber.Text  = Properties.Settings.Default.panelNumber;
+            panelInterval2.Text = Properties.Settings.Default.panelInterval2;
+            panelInterval3.Text = Properties.Settings.Default.panelInterval3;
+            panelInterval4.Text = Properties.Settings.Default.panelInterval4;
+            panelInterval1.Text = Properties.Settings.Default.panelInterval1;
+            folderPath.Text = Properties.Settings.Default.folderPath;
+
         }
         //Browse for folder where slides will be held
         private void folderBrowse_Click(object sender, EventArgs e)
@@ -52,6 +60,7 @@ namespace WS_Slideshow
                 {
                     Directory.CreateDirectory(slideShowFolderPath + "\\panel" + i);
                 }
+                Properties.Settings.Default.folderPath = slideShowFolderPath;
             }
             else
             {
@@ -100,6 +109,20 @@ namespace WS_Slideshow
                 slideshow = new Slideshow(Int16.Parse(panelNumber.Text), intervalofPanels, slideShowFolderPath);
                 slideshow.Show();
             }
+        }
+        
+
+        private void SlideshowInitialization_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //Saves fields of what the user had last before close
+            Properties.Settings.Default.panelNumber = panelNumber.Text;
+            Properties.Settings.Default.panelInterval1 = panelInterval1.Text;
+            Properties.Settings.Default.panelInterval2 = panelInterval2.Text;
+            Properties.Settings.Default.panelInterval3 = panelInterval3.Text;
+            Properties.Settings.Default.panelInterval4 = panelInterval4.Text;
+            Properties.Settings.Default.folderPath = folderPath.Text;
+            Properties.Settings.Default.Save();
+            Properties.Settings.Default.Upgrade();
         }
     }
 }
