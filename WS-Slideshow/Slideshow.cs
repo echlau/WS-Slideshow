@@ -22,7 +22,8 @@ namespace WS_Slideshow
         private static Size screenSize;
         private static Timer panelTimer = new Timer();
         private static List<int> panelTime = new List<int>();
-        
+        private static List<String> dirs = new List<string>();
+
         //Using a timer event to changes slides for panel
         private static void TimerEventProcessor(Object myObject,
                                             EventArgs myEventArgs)
@@ -31,15 +32,18 @@ namespace WS_Slideshow
             panelTimer.Interval = 1000;
             for (int i = 0; i < numofPanels; i++)
             { 
-                List<String> dirs = new List<string>();
+                //Gets the path the the slides for the slideshow. List gets cleared and repopulated in case files get changed.
                 dirs.Clear();
-                foreach(String s in Directory.GetFiles(folderPath + "\\panel" + (i + 1), "*.jpg")) {
+                foreach (String s in Directory.GetFiles(folderPath + "\\panel" + (i + 1), "*.jpg"))
+                {
                     dirs.Add(s);
                 }
                 foreach (String s in Directory.GetFiles(folderPath + "\\panel" + (i + 1), "*.png"))
                 {
                     dirs.Add(s);
                 }
+
+                //Changes slide or counts down towards changing slide
                 if (panelTime[i] == 0)
                 {
                     //Checks if panel index exceeds the number of slides in the folder
@@ -57,9 +61,10 @@ namespace WS_Slideshow
                     {
                         //endSlideshow();
                     }
-                    //Sets the time remaining of the panel to the correct 
+                    //Resets the time remaining for the panel's slide change
                     panelTime[i] = intervalofPanels[i];
-                }else
+                }
+                else
                 {
                     //Updates the time remaining for a slide change
                     panelTime[i]--;
@@ -86,7 +91,7 @@ namespace WS_Slideshow
             intervalofPanels = intervals;
             folderPath = path;
             screenSize = new Size(Screen.PrimaryScreen.Bounds.Width, Screen.PrimaryScreen.Bounds.Height);
-            
+
             //Calls methods to set up panels and starts the slideshow
             referencePanels();
             resetPanels();
@@ -106,7 +111,7 @@ namespace WS_Slideshow
             panel.Add(pictureBox3);
             panel.Add(pictureBox4);
         }
-        
+
         //Sets all panels to first slide
         private void resetPanels()
         {
@@ -167,7 +172,7 @@ namespace WS_Slideshow
             panelTimer.Interval = 1;
             panelTimer.Enabled = true;
             panelTimer.Start();
-            
+
         }
 
         //Closes slideshow on escape key press
