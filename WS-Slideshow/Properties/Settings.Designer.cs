@@ -37,7 +37,7 @@ namespace WS_Slideshow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("3")]
+        [global::System.Configuration.DefaultSettingValueAttribute("1")]
         public string panelNumber {
             get {
                 return ((string)(this["panelNumber"]));
@@ -49,7 +49,7 @@ namespace WS_Slideshow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public string panelInterval1 {
             get {
                 return ((string)(this["panelInterval1"]));
@@ -61,7 +61,7 @@ namespace WS_Slideshow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public string panelInterval2 {
             get {
                 return ((string)(this["panelInterval2"]));
@@ -73,7 +73,7 @@ namespace WS_Slideshow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public string panelInterval3 {
             get {
                 return ((string)(this["panelInterval3"]));
@@ -85,7 +85,7 @@ namespace WS_Slideshow.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("5")]
+        [global::System.Configuration.DefaultSettingValueAttribute("10")]
         public string panelInterval4 {
             get {
                 return ((string)(this["panelInterval4"]));

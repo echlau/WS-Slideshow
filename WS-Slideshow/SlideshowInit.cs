@@ -60,7 +60,6 @@ namespace WS_Slideshow
                 {
                     Directory.CreateDirectory(slideShowFolderPath + "\\panel" + i);
                 }
-                Properties.Settings.Default.folderPath = slideShowFolderPath;
             }
             else
             {
@@ -73,15 +72,16 @@ namespace WS_Slideshow
         private void panelNumber_SelectedIndexChanged(object sender, EventArgs e)
         {
             //panelInterval textboxes enabled corresponding to number of panels chosen
+            List<TextBox> intervals = new List<TextBox>(intervalGroup.Controls.OfType<TextBox>());
             for (int i = 0; i < 4; i++)
             {
                 if (Int16.Parse(panelNumber.Text) > i)
                 {
-                    intervalGroup.Controls[i].Enabled = true;
+                    intervals[i].Enabled = true;
                 }
                 else
                 {
-                    intervalGroup.Controls[i].Enabled = false;
+                    intervals[i].Enabled = false;
                 }
             }
 
