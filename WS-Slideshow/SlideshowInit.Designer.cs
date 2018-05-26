@@ -38,18 +38,18 @@
             this.panelInterval3 = new System.Windows.Forms.TextBox();
             this.panelInterval4 = new System.Windows.Forms.TextBox();
             this.intervalGroup = new System.Windows.Forms.GroupBox();
+            this.labelPanel4Seconds = new System.Windows.Forms.Label();
+            this.labelPanel3Seconds = new System.Windows.Forms.Label();
+            this.labelPanel2Seconds = new System.Windows.Forms.Label();
+            this.labelPanel1Seconds = new System.Windows.Forms.Label();
+            this.labelPanel4Interval = new System.Windows.Forms.Label();
+            this.labelPanel3Interval = new System.Windows.Forms.Label();
+            this.labelPanel2Interval = new System.Windows.Forms.Label();
+            this.labelPanel1Interval = new System.Windows.Forms.Label();
+            this.labelNumofPanel = new System.Windows.Forms.Label();
             this.startSlideshow = new System.Windows.Forms.Button();
             this.labelFolderPath = new System.Windows.Forms.Label();
             this.pathGroup = new System.Windows.Forms.GroupBox();
-            this.labelNumofPanel = new System.Windows.Forms.Label();
-            this.labelPanel1Interval = new System.Windows.Forms.Label();
-            this.labelPanel2Interval = new System.Windows.Forms.Label();
-            this.labelPanel3Interval = new System.Windows.Forms.Label();
-            this.labelPanel4Interval = new System.Windows.Forms.Label();
-            this.labelPanel1Seconds = new System.Windows.Forms.Label();
-            this.labelPanel2Seconds = new System.Windows.Forms.Label();
-            this.labelPanel3Seconds = new System.Windows.Forms.Label();
-            this.labelPanel4Seconds = new System.Windows.Forms.Label();
             this.intervalGroup.SuspendLayout();
             this.pathGroup.SuspendLayout();
             this.SuspendLayout();
@@ -105,6 +105,7 @@
             // 
             this.panelInterval1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panelInterval1.Location = new System.Drawing.Point(6, 97);
+            this.panelInterval1.MaxLength = 3;
             this.panelInterval1.Name = "panelInterval1";
             this.panelInterval1.Size = new System.Drawing.Size(100, 26);
             this.panelInterval1.TabIndex = 4;
@@ -115,6 +116,7 @@
             this.panelInterval2.Enabled = false;
             this.panelInterval2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panelInterval2.Location = new System.Drawing.Point(6, 189);
+            this.panelInterval2.MaxLength = 3;
             this.panelInterval2.Name = "panelInterval2";
             this.panelInterval2.Size = new System.Drawing.Size(100, 26);
             this.panelInterval2.TabIndex = 5;
@@ -125,6 +127,7 @@
             this.panelInterval3.Enabled = false;
             this.panelInterval3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panelInterval3.Location = new System.Drawing.Point(366, 97);
+            this.panelInterval3.MaxLength = 3;
             this.panelInterval3.Name = "panelInterval3";
             this.panelInterval3.Size = new System.Drawing.Size(100, 26);
             this.panelInterval3.TabIndex = 6;
@@ -135,6 +138,7 @@
             this.panelInterval4.Enabled = false;
             this.panelInterval4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.panelInterval4.Location = new System.Drawing.Point(366, 189);
+            this.panelInterval4.MaxLength = 3;
             this.panelInterval4.Name = "panelInterval4";
             this.panelInterval4.Size = new System.Drawing.Size(100, 26);
             this.panelInterval4.TabIndex = 7;
@@ -163,6 +167,87 @@
             this.intervalGroup.TabIndex = 8;
             this.intervalGroup.TabStop = false;
             this.intervalGroup.Text = "Step 2 - Panels and Slide Intervals";
+            // 
+            // labelPanel4Seconds
+            // 
+            this.labelPanel4Seconds.AutoSize = true;
+            this.labelPanel4Seconds.Location = new System.Drawing.Point(472, 192);
+            this.labelPanel4Seconds.Name = "labelPanel4Seconds";
+            this.labelPanel4Seconds.Size = new System.Drawing.Size(72, 20);
+            this.labelPanel4Seconds.TabIndex = 17;
+            this.labelPanel4Seconds.Text = "Seconds";
+            // 
+            // labelPanel3Seconds
+            // 
+            this.labelPanel3Seconds.AutoSize = true;
+            this.labelPanel3Seconds.Location = new System.Drawing.Point(472, 100);
+            this.labelPanel3Seconds.Name = "labelPanel3Seconds";
+            this.labelPanel3Seconds.Size = new System.Drawing.Size(72, 20);
+            this.labelPanel3Seconds.TabIndex = 16;
+            this.labelPanel3Seconds.Text = "Seconds";
+            // 
+            // labelPanel2Seconds
+            // 
+            this.labelPanel2Seconds.AutoSize = true;
+            this.labelPanel2Seconds.Location = new System.Drawing.Point(112, 192);
+            this.labelPanel2Seconds.Name = "labelPanel2Seconds";
+            this.labelPanel2Seconds.Size = new System.Drawing.Size(72, 20);
+            this.labelPanel2Seconds.TabIndex = 15;
+            this.labelPanel2Seconds.Text = "Seconds";
+            // 
+            // labelPanel1Seconds
+            // 
+            this.labelPanel1Seconds.AutoSize = true;
+            this.labelPanel1Seconds.Location = new System.Drawing.Point(112, 100);
+            this.labelPanel1Seconds.Name = "labelPanel1Seconds";
+            this.labelPanel1Seconds.Size = new System.Drawing.Size(72, 20);
+            this.labelPanel1Seconds.TabIndex = 13;
+            this.labelPanel1Seconds.Text = "Seconds";
+            // 
+            // labelPanel4Interval
+            // 
+            this.labelPanel4Interval.AutoSize = true;
+            this.labelPanel4Interval.Location = new System.Drawing.Point(366, 166);
+            this.labelPanel4Interval.Name = "labelPanel4Interval";
+            this.labelPanel4Interval.Size = new System.Drawing.Size(66, 20);
+            this.labelPanel4Interval.TabIndex = 12;
+            this.labelPanel4Interval.Text = "Panel 4:";
+            // 
+            // labelPanel3Interval
+            // 
+            this.labelPanel3Interval.AutoSize = true;
+            this.labelPanel3Interval.Location = new System.Drawing.Point(366, 74);
+            this.labelPanel3Interval.Name = "labelPanel3Interval";
+            this.labelPanel3Interval.Size = new System.Drawing.Size(66, 20);
+            this.labelPanel3Interval.TabIndex = 11;
+            this.labelPanel3Interval.Text = "Panel 3:";
+            // 
+            // labelPanel2Interval
+            // 
+            this.labelPanel2Interval.AutoSize = true;
+            this.labelPanel2Interval.Location = new System.Drawing.Point(7, 166);
+            this.labelPanel2Interval.Name = "labelPanel2Interval";
+            this.labelPanel2Interval.Size = new System.Drawing.Size(66, 20);
+            this.labelPanel2Interval.TabIndex = 10;
+            this.labelPanel2Interval.Text = "Panel 2:";
+            // 
+            // labelPanel1Interval
+            // 
+            this.labelPanel1Interval.AutoSize = true;
+            this.labelPanel1Interval.Location = new System.Drawing.Point(6, 74);
+            this.labelPanel1Interval.Name = "labelPanel1Interval";
+            this.labelPanel1Interval.Size = new System.Drawing.Size(66, 20);
+            this.labelPanel1Interval.TabIndex = 9;
+            this.labelPanel1Interval.Text = "Panel 1:";
+            // 
+            // labelNumofPanel
+            // 
+            this.labelNumofPanel.AutoSize = true;
+            this.labelNumofPanel.Location = new System.Drawing.Point(7, 26);
+            this.labelNumofPanel.Name = "labelNumofPanel";
+            this.labelNumofPanel.Size = new System.Drawing.Size(139, 20);
+            this.labelNumofPanel.TabIndex = 8;
+            this.labelNumofPanel.Text = "Number of Panels:";
             // 
             // startSlideshow
             // 
@@ -199,87 +284,6 @@
             this.pathGroup.TabIndex = 11;
             this.pathGroup.TabStop = false;
             this.pathGroup.Text = "Step 1 - Location";
-            // 
-            // labelNumofPanel
-            // 
-            this.labelNumofPanel.AutoSize = true;
-            this.labelNumofPanel.Location = new System.Drawing.Point(7, 26);
-            this.labelNumofPanel.Name = "labelNumofPanel";
-            this.labelNumofPanel.Size = new System.Drawing.Size(139, 20);
-            this.labelNumofPanel.TabIndex = 8;
-            this.labelNumofPanel.Text = "Number of Panels:";
-            // 
-            // labelPanel1Interval
-            // 
-            this.labelPanel1Interval.AutoSize = true;
-            this.labelPanel1Interval.Location = new System.Drawing.Point(6, 74);
-            this.labelPanel1Interval.Name = "labelPanel1Interval";
-            this.labelPanel1Interval.Size = new System.Drawing.Size(66, 20);
-            this.labelPanel1Interval.TabIndex = 9;
-            this.labelPanel1Interval.Text = "Panel 1:";
-            // 
-            // labelPanel2Interval
-            // 
-            this.labelPanel2Interval.AutoSize = true;
-            this.labelPanel2Interval.Location = new System.Drawing.Point(7, 166);
-            this.labelPanel2Interval.Name = "labelPanel2Interval";
-            this.labelPanel2Interval.Size = new System.Drawing.Size(66, 20);
-            this.labelPanel2Interval.TabIndex = 10;
-            this.labelPanel2Interval.Text = "Panel 2:";
-            // 
-            // labelPanel3Interval
-            // 
-            this.labelPanel3Interval.AutoSize = true;
-            this.labelPanel3Interval.Location = new System.Drawing.Point(366, 74);
-            this.labelPanel3Interval.Name = "labelPanel3Interval";
-            this.labelPanel3Interval.Size = new System.Drawing.Size(66, 20);
-            this.labelPanel3Interval.TabIndex = 11;
-            this.labelPanel3Interval.Text = "Panel 3:";
-            // 
-            // labelPanel4Interval
-            // 
-            this.labelPanel4Interval.AutoSize = true;
-            this.labelPanel4Interval.Location = new System.Drawing.Point(366, 166);
-            this.labelPanel4Interval.Name = "labelPanel4Interval";
-            this.labelPanel4Interval.Size = new System.Drawing.Size(66, 20);
-            this.labelPanel4Interval.TabIndex = 12;
-            this.labelPanel4Interval.Text = "Panel 4:";
-            // 
-            // labelPanel1Seconds
-            // 
-            this.labelPanel1Seconds.AutoSize = true;
-            this.labelPanel1Seconds.Location = new System.Drawing.Point(112, 100);
-            this.labelPanel1Seconds.Name = "labelPanel1Seconds";
-            this.labelPanel1Seconds.Size = new System.Drawing.Size(72, 20);
-            this.labelPanel1Seconds.TabIndex = 13;
-            this.labelPanel1Seconds.Text = "Seconds";
-            // 
-            // labelPanel2Seconds
-            // 
-            this.labelPanel2Seconds.AutoSize = true;
-            this.labelPanel2Seconds.Location = new System.Drawing.Point(112, 192);
-            this.labelPanel2Seconds.Name = "labelPanel2Seconds";
-            this.labelPanel2Seconds.Size = new System.Drawing.Size(72, 20);
-            this.labelPanel2Seconds.TabIndex = 15;
-            this.labelPanel2Seconds.Text = "Seconds";
-            // 
-            // labelPanel3Seconds
-            // 
-            this.labelPanel3Seconds.AutoSize = true;
-            this.labelPanel3Seconds.Location = new System.Drawing.Point(472, 100);
-            this.labelPanel3Seconds.Name = "labelPanel3Seconds";
-            this.labelPanel3Seconds.Size = new System.Drawing.Size(72, 20);
-            this.labelPanel3Seconds.TabIndex = 16;
-            this.labelPanel3Seconds.Text = "Seconds";
-            // 
-            // labelPanel4Seconds
-            // 
-            this.labelPanel4Seconds.AutoSize = true;
-            this.labelPanel4Seconds.Location = new System.Drawing.Point(472, 192);
-            this.labelPanel4Seconds.Name = "labelPanel4Seconds";
-            this.labelPanel4Seconds.Size = new System.Drawing.Size(72, 20);
-            this.labelPanel4Seconds.TabIndex = 17;
-            this.labelPanel4Seconds.Text = "Seconds";
             // 
             // SlideshowInitialization
             // 

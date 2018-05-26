@@ -95,10 +95,11 @@ namespace WS_Slideshow
             if (Application.OpenForms.OfType<Slideshow>().Count() == 1)
                 Application.OpenForms.OfType<Slideshow>().First().Close();
 
+            List<TextBox> intervals = new List<TextBox>(intervalGroup.Controls.OfType<TextBox>());
             //Put panel intervals set by user into an array
             for (int i = 0; i < Int16.Parse(panelNumber.Text); i++)
             {
-                intervalofPanels.Add(Int16.Parse(intervalGroup.Controls[i].Text));
+                intervalofPanels.Add(Int16.Parse(intervals[i].Text));
             }
 
             //Sets correct path
