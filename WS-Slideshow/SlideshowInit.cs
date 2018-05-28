@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Diagnostics;
 using System.Windows.Forms;
-using System.Configuration;
 
 namespace WS_Slideshow
 {
@@ -27,7 +26,7 @@ namespace WS_Slideshow
             InitializeComponent();
 
             //Loads what user had last session
-            panelNumber.Text  = Properties.Settings.Default.panelNumber;
+            panelNumber.Text = Properties.Settings.Default.panelNumber;
             panelInterval2.Text = Properties.Settings.Default.panelInterval2;
             panelInterval3.Text = Properties.Settings.Default.panelInterval3;
             panelInterval4.Text = Properties.Settings.Default.panelInterval4;
@@ -55,6 +54,8 @@ namespace WS_Slideshow
             if (Directory.Exists(slideShowFolderPath))
             //Creates folders to use for different panels in the slide show
             {
+                //Clears error message
+                errorMessage.SetError(folderPath, "");
                 slideShowFolderPath += "\\WS-Slideshow";
                 for (int i = 1; i <= 4; i++)
                 {
@@ -64,7 +65,7 @@ namespace WS_Slideshow
             else
             {
                 //Error for an incorrect file path
-                Debug.Print("Incorrect file path format");
+                errorMessage.SetError(folderPath, "The folder path does not exist, use the \"Browse button to select a folder\"");
             }
 
         }
@@ -91,6 +92,14 @@ namespace WS_Slideshow
         {
             //Resets all intervals
             intervalofPanels.Clear();
+
+            //Clears all error messages
+            errorMessage.SetError(startSlideshowButton, "");
+            foreach (Control cr in intervalGroup.Controls.OfType<TextBox>())
+            {
+                errorIntervals.SetError(cr, "");
+            }
+
             //Only allows for one slideshow to be open
             if (Application.OpenForms.OfType<Slideshow>().Count() == 1)
                 Application.OpenForms.OfType<Slideshow>().First().Close();
@@ -102,17 +111,55 @@ namespace WS_Slideshow
                 intervalofPanels.Add(Int16.Parse(intervals[i].Text));
             }
 
-            //Sets correct path
+            //Sets path to one sub-folder down
             slideShowFolderPath = folderPath.Text + "\\WS-Slideshow";
-            if (Directory.Exists(slideShowFolderPath))
+
+            //Ensures all folders exist
+            if (Directory.Exists(slideShowFolderPath + "\\panel1") &&
+                Directory.Exists(slideShowFolderPath + "\\panel2") &&
+                Directory.Exists(slideShowFolderPath + "\\panel3") &&
+                Directory.Exists(slideShowFolderPath + "\\panel4") &&
+                checkIntervals())
             {
                 //Opens the slideshow form
                 slideshow = new Slideshow(Int16.Parse(panelNumber.Text), intervalofPanels, slideShowFolderPath);
                 slideshow.Show();
             }
+            else
+            {
+                //Error Message for non-existant file 
+                if (!Directory.Exists(slideShowFolderPath + "\\panel1") &&
+                    !Directory.Exists(slideShowFolderPath + "\\panel2") &&
+                    !Directory.Exists(slideShowFolderPath + "\\panel3") &&
+                    !Directory.Exists(slideShowFolderPath + "\\panel4"))
+                {
+                    errorMessage.SetError(startSlideshowButton, "Missing a folder, hit \"Create folders\" to restore folders");
+                }
+                //Error Message for having an interval of 0 seconds
+                foreach (Control cr in intervalGroup.Controls.OfType<TextBox>())
+                {
+                    if (cr.Text.Equals("0"))
+                    {
+                        errorIntervals.SetError(cr, "Cannot have an interval of 0");
+                    }
+                }
+            }
         }
-        
 
+        //Checks to see if any of the intervals for panels is 0 seconds
+        private bool checkIntervals()
+        {
+            foreach (Control cr in intervalGroup.Controls.OfType<TextBox>())
+            {
+                if (cr.Text.Equals("0"))
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        //When form is closed, save fields
         private void SlideshowInitialization_FormClosed(object sender, FormClosedEventArgs e)
         {
             //Saves fields of what the user had last before close
@@ -124,6 +171,15 @@ namespace WS_Slideshow
             Properties.Settings.Default.folderPath = folderPath.Text;
             Properties.Settings.Default.Save();
             Properties.Settings.Default.Upgrade();
+        }
+
+        //Restricts select fields to allow only numbers
+        private void numberRestriction_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

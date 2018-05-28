@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.folderBrowse = new System.Windows.Forms.Button();
             this.folderPath = new System.Windows.Forms.TextBox();
@@ -47,11 +48,15 @@
             this.labelPanel2Interval = new System.Windows.Forms.Label();
             this.labelPanel1Interval = new System.Windows.Forms.Label();
             this.labelNumofPanel = new System.Windows.Forms.Label();
-            this.startSlideshow = new System.Windows.Forms.Button();
+            this.startSlideshowButton = new System.Windows.Forms.Button();
             this.labelFolderPath = new System.Windows.Forms.Label();
             this.pathGroup = new System.Windows.Forms.GroupBox();
+            this.errorMessage = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorIntervals = new System.Windows.Forms.ErrorProvider(this.components);
             this.intervalGroup.SuspendLayout();
             this.pathGroup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMessage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorIntervals)).BeginInit();
             this.SuspendLayout();
             // 
             // folderBrowse
@@ -71,7 +76,7 @@
             this.folderPath.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.folderPath.Location = new System.Drawing.Point(10, 58);
             this.folderPath.Name = "folderPath";
-            this.folderPath.Size = new System.Drawing.Size(601, 26);
+            this.folderPath.Size = new System.Drawing.Size(579, 26);
             this.folderPath.TabIndex = 1;
             // 
             // createFolders
@@ -104,45 +109,49 @@
             // panelInterval1
             // 
             this.panelInterval1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.panelInterval1.Location = new System.Drawing.Point(6, 97);
+            this.panelInterval1.Location = new System.Drawing.Point(26, 97);
             this.panelInterval1.MaxLength = 3;
             this.panelInterval1.Name = "panelInterval1";
-            this.panelInterval1.Size = new System.Drawing.Size(100, 26);
+            this.panelInterval1.Size = new System.Drawing.Size(66, 26);
             this.panelInterval1.TabIndex = 4;
             this.panelInterval1.Text = "10";
+            this.panelInterval1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberRestriction_KeyPress);
             // 
             // panelInterval2
             // 
             this.panelInterval2.Enabled = false;
             this.panelInterval2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.panelInterval2.Location = new System.Drawing.Point(6, 189);
+            this.panelInterval2.Location = new System.Drawing.Point(26, 189);
             this.panelInterval2.MaxLength = 3;
             this.panelInterval2.Name = "panelInterval2";
-            this.panelInterval2.Size = new System.Drawing.Size(100, 26);
+            this.panelInterval2.Size = new System.Drawing.Size(66, 26);
             this.panelInterval2.TabIndex = 5;
             this.panelInterval2.Text = "10";
+            this.panelInterval2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberRestriction_KeyPress);
             // 
             // panelInterval3
             // 
             this.panelInterval3.Enabled = false;
             this.panelInterval3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.panelInterval3.Location = new System.Drawing.Point(366, 97);
+            this.panelInterval3.Location = new System.Drawing.Point(386, 97);
             this.panelInterval3.MaxLength = 3;
             this.panelInterval3.Name = "panelInterval3";
-            this.panelInterval3.Size = new System.Drawing.Size(100, 26);
+            this.panelInterval3.Size = new System.Drawing.Size(66, 26);
             this.panelInterval3.TabIndex = 6;
             this.panelInterval3.Text = "10";
+            this.panelInterval3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberRestriction_KeyPress);
             // 
             // panelInterval4
             // 
             this.panelInterval4.Enabled = false;
             this.panelInterval4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.panelInterval4.Location = new System.Drawing.Point(366, 189);
+            this.panelInterval4.Location = new System.Drawing.Point(386, 189);
             this.panelInterval4.MaxLength = 3;
             this.panelInterval4.Name = "panelInterval4";
-            this.panelInterval4.Size = new System.Drawing.Size(100, 26);
+            this.panelInterval4.Size = new System.Drawing.Size(66, 26);
             this.panelInterval4.TabIndex = 7;
             this.panelInterval4.Text = "10";
+            this.panelInterval4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberRestriction_KeyPress);
             // 
             // intervalGroup
             // 
@@ -171,7 +180,7 @@
             // labelPanel4Seconds
             // 
             this.labelPanel4Seconds.AutoSize = true;
-            this.labelPanel4Seconds.Location = new System.Drawing.Point(472, 192);
+            this.labelPanel4Seconds.Location = new System.Drawing.Point(458, 192);
             this.labelPanel4Seconds.Name = "labelPanel4Seconds";
             this.labelPanel4Seconds.Size = new System.Drawing.Size(72, 20);
             this.labelPanel4Seconds.TabIndex = 17;
@@ -180,7 +189,7 @@
             // labelPanel3Seconds
             // 
             this.labelPanel3Seconds.AutoSize = true;
-            this.labelPanel3Seconds.Location = new System.Drawing.Point(472, 100);
+            this.labelPanel3Seconds.Location = new System.Drawing.Point(458, 100);
             this.labelPanel3Seconds.Name = "labelPanel3Seconds";
             this.labelPanel3Seconds.Size = new System.Drawing.Size(72, 20);
             this.labelPanel3Seconds.TabIndex = 16;
@@ -189,7 +198,7 @@
             // labelPanel2Seconds
             // 
             this.labelPanel2Seconds.AutoSize = true;
-            this.labelPanel2Seconds.Location = new System.Drawing.Point(112, 192);
+            this.labelPanel2Seconds.Location = new System.Drawing.Point(98, 192);
             this.labelPanel2Seconds.Name = "labelPanel2Seconds";
             this.labelPanel2Seconds.Size = new System.Drawing.Size(72, 20);
             this.labelPanel2Seconds.TabIndex = 15;
@@ -198,7 +207,7 @@
             // labelPanel1Seconds
             // 
             this.labelPanel1Seconds.AutoSize = true;
-            this.labelPanel1Seconds.Location = new System.Drawing.Point(112, 100);
+            this.labelPanel1Seconds.Location = new System.Drawing.Point(98, 100);
             this.labelPanel1Seconds.Name = "labelPanel1Seconds";
             this.labelPanel1Seconds.Size = new System.Drawing.Size(72, 20);
             this.labelPanel1Seconds.TabIndex = 13;
@@ -249,17 +258,17 @@
             this.labelNumofPanel.TabIndex = 8;
             this.labelNumofPanel.Text = "Number of Panels:";
             // 
-            // startSlideshow
+            // startSlideshowButton
             // 
-            this.startSlideshow.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.startSlideshow.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.startSlideshow.Location = new System.Drawing.Point(629, 412);
-            this.startSlideshow.Name = "startSlideshow";
-            this.startSlideshow.Size = new System.Drawing.Size(142, 26);
-            this.startSlideshow.TabIndex = 9;
-            this.startSlideshow.Text = "Start Slideshow";
-            this.startSlideshow.UseVisualStyleBackColor = true;
-            this.startSlideshow.Click += new System.EventHandler(this.startSlideshow_Click);
+            this.startSlideshowButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.startSlideshowButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startSlideshowButton.Location = new System.Drawing.Point(629, 412);
+            this.startSlideshowButton.Name = "startSlideshowButton";
+            this.startSlideshowButton.Size = new System.Drawing.Size(142, 26);
+            this.startSlideshowButton.TabIndex = 9;
+            this.startSlideshowButton.Text = "Start Slideshow";
+            this.startSlideshowButton.UseVisualStyleBackColor = true;
+            this.startSlideshowButton.Click += new System.EventHandler(this.startSlideshow_Click);
             // 
             // labelFolderPath
             // 
@@ -285,21 +294,38 @@
             this.pathGroup.TabStop = false;
             this.pathGroup.Text = "Step 1 - Location";
             // 
+            // errorMessage
+            // 
+            this.errorMessage.ContainerControl = this;
+            // 
+            // errorIntervals
+            // 
+            this.errorIntervals.ContainerControl = this;
+            this.errorIntervals.RightToLeft = true;
+            // 
             // SlideshowInitialization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.pathGroup);
-            this.Controls.Add(this.startSlideshow);
+            this.Controls.Add(this.startSlideshowButton);
             this.Controls.Add(this.intervalGroup);
+            this.HelpButton = true;
+            this.MaximizeBox = false;
             this.Name = "SlideshowInitialization";
+            this.ShowIcon = false;
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "WS-Slideshow";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SlideshowInitialization_FormClosed);
             this.intervalGroup.ResumeLayout(false);
             this.intervalGroup.PerformLayout();
             this.pathGroup.ResumeLayout(false);
             this.pathGroup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorMessage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorIntervals)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -316,7 +342,7 @@
         private System.Windows.Forms.TextBox panelInterval3;
         private System.Windows.Forms.TextBox panelInterval4;
         private System.Windows.Forms.GroupBox intervalGroup;
-        private System.Windows.Forms.Button startSlideshow;
+        private System.Windows.Forms.Button startSlideshowButton;
         private System.Windows.Forms.Label labelFolderPath;
         private System.Windows.Forms.GroupBox pathGroup;
         private System.Windows.Forms.Label labelPanel4Seconds;
@@ -328,6 +354,8 @@
         private System.Windows.Forms.Label labelPanel2Interval;
         private System.Windows.Forms.Label labelPanel1Interval;
         private System.Windows.Forms.Label labelNumofPanel;
+        private System.Windows.Forms.ErrorProvider errorMessage;
+        private System.Windows.Forms.ErrorProvider errorIntervals;
     }
 }
 
